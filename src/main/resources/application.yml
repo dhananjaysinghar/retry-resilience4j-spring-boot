@@ -1,0 +1,21 @@
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+
+resilience4j:
+  retry:
+    instances:
+      user-service:
+        maxRetryAttempts: 3
+        waitDuration: 5s
+
+
